@@ -1,0 +1,97 @@
+import tkinter
+from tkinter import messagebox
+from tkinter import *
+import math
+#################################
+bf = "14"
+#################################
+q = Tk()
+q.title("Калькулятор")
+q.configure(background="#6d8fbf")
+q.geometry("600x600")
+################################# функция1
+def col():
+    try:
+        a = eval(w.get())
+        w.delete(0, tkinter.END)
+        w.insert(tkinter.END, str(a))
+    except Exception as e:
+        messagebox.showerror("Ошибка!!!", str(e))
+################################# функция2
+def dob():
+    w.insert(tkinter.END, "+")
+################################# функция3
+def vech():
+    w.insert(tkinter.END, "-")
+################################ функция4
+def ymn():
+    w.insert(tkinter.END, "*")
+################################ функция5
+def dele():
+    w.insert(tkinter.END, "//")
+################################# функция6
+def step():
+    w.insert(tkinter.END, "**")
+################################# функция7
+def kor():
+    try:
+        a = float(w.get())
+        w.delete(0, tkinter.END)
+        w.insert(tkinter.END, str(math.sqrt(a)))
+    except Exception as e:
+        messagebox.showerror("Ошибка!!!", str(e))
+################################# функция8
+def clear():
+    w.delete(0, tkinter.END)
+#################################
+for c in range(7):
+    q.columnconfigure(index=c, weight=1)
+for r in range(7):
+    q.rowconfigure(index=r, weight=1)
+################################
+w = Entry(font="19")
+w.grid(row=0, column=1, columnspan=5, ipadx=200, ipady=20, padx=5, pady=5)
+#################################
+e = Button(text="7", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, '7'))
+e.grid(row=1, column=1, ipadx=35, ipady=7)
+e1 = Button(text="8", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "8"))
+e1.grid(row=1, column=2, ipadx=35, ipady=7)
+e2 = Button(text="9", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "9"))
+e2.grid(row=1, column=3, ipadx=35, ipady=7)
+e3 = Button(text="4", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "4"))
+e3.grid(row=2, column=1, ipadx=35, ipady=7)
+e4 = Button(text="5", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "5"))
+e4.grid(row=2, column=2, ipadx=35, ipady=7)
+e5 = Button(text="6", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "6"))
+e5.grid(row=2, column=3, ipadx=35, ipady=7)
+e6 = Button(text="1", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "1"))
+e6.grid(row=3, column=1, ipadx=35, ipady=7)
+e7 = Button(text="2", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "2"))
+e7.grid(row=3, column=2, ipadx=35, ipady=7)
+e8 = Button(text="3", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "3"))
+e8.grid(row=3, column=3, ipadx=35, ipady=7)
+e9 = Button(text="0", background="#6dbabf", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "0"))
+e9.grid(row=4, column=2, ipadx=35, ipady=10)
+###################
+r = Button(text="+", background="#11d1c4", foreground="#5c2a54", font=bf, command=dob)
+r.grid(row=1, column=4, ipadx=35, ipady=7)
+r1 = Button(text="-", background="#11d1c4", foreground="#5c2a54", font=bf, command=vech)
+r1.grid(row=2, column=4, ipadx=35, ipady=7)
+r2 = Button(text="*", background="#11d1c4", foreground="#5c2a54", font=bf, command=ymn)
+r2.grid(row=3, column=4, ipadx=35, ipady=7)
+r4 = Button(text="//", background="#11d1c4", foreground="#5c2a54", font=bf, command=dele)
+r4.grid(row=1, column=5, ipadx=35, ipady=7)
+r5 = Button(text="()", background="#11d1c4", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "()"))
+r5.grid(row=2, column=5, ipadx=35, ipady=7)
+r6 = Button(text="**", background="#11d1c4", foreground="#5c2a54", font=bf, command=step)
+r6.grid(row=3, column=5, ipadx=35, ipady=7)
+r7 = Button(text=".", background="#11d1c4", foreground="#5c2a54", font=bf, command=lambda: w.insert(tkinter.END, "."))
+r7.grid(row=4, column=1, ipadx=35, ipady=10)
+r8 = Button(text="√", background="#11d1c4", foreground="#5c2a54", font=bf, command=kor)
+r8.grid(row=4, column=4, ipadx=35, ipady=10)
+r9 = Button(text="C", background="#11d1c4", foreground="#5c2a54", font=bf, command=clear)
+r9.grid(row=4, column=5, ipadx=35, ipady=10)
+r3 = Button(text="=", background="#11d1c4", foreground="#5c2a54", font=bf, command=col)
+r3.grid(row=4, column=3, ipadx=35, ipady=10)
+#################################
+q.mainloop()
