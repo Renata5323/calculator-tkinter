@@ -43,6 +43,15 @@ def kor():
 ################################# функция8
 def clear():
     w.delete(0, tkinter.END)
+#################################функция9
+def colorr():
+    q.configure(background="#f00")
+#################################функция10
+def colorg():
+    q.configure(background="#00ff1a")
+#################################функция11
+def colorb():
+    q.configure(background="#000000")
 #################################
 for c in range(7):
     q.columnconfigure(index=c, weight=1)
@@ -94,4 +103,12 @@ r9.grid(row=4, column=5, ipadx=35, ipady=10)
 r3 = Button(text="=", background="#11d1c4", foreground="#5c2a54", font=bf, command=col)
 r3.grid(row=4, column=3, ipadx=35, ipady=10)
 #################################
+s=Menu()
+s1=Menu()
+s1.add_command(label="red",command=colorr)
+s1.add_command(label="green",command=colorg)
+s1.add_command(label="black",command=colorb)
+s.add_cascade(label="color",menu=s1)
+#################################
+q.config(menu=s)
 q.mainloop()
